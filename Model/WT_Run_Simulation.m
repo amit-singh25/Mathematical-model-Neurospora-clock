@@ -1,5 +1,4 @@
 %%%%%%%%%%%%%%%Initail condition 
-
 frq_in = 0.993465;init_Cp =1.01288;init_Fa = 13.8141;init_Fi = 0.715077;
 init_Fi1 = 0.72702;init_Fi2 = 0.677474;init_Fi3 = 7.10027;init_Fi4 = 24.7058;init_Fi5 = 2.54884;
 init_Mdt = 7.289;init_Mf = 1.32394;init_Mv = 0.425304;init_Vd = 0.0528963;
@@ -98,7 +97,7 @@ plot(lt,vvd, '.-r', 'LineWidth', 2,'MarkerSize',18);
 Legend('\itfrq','\itvvd')
 
 %%%%%%%%%%%% SFig-2A) Simulated response of reporters to 10 repetitive LD cycles.
-%%% SFig-2B) can be simulated 
+%%% SFig-2B) can be simulated by changeing parameter l2 =0 and l1 = 0 and then follow the below code to plot 
 T=24;
 start=[72+T 72+2*T 72+3*T 72+4*T 72+5*T 72+6*T 72+7*T 72+8*T 72+9*T 72+10*T];
 width=[12 12 12 12 12 12 12 12 12 12];
