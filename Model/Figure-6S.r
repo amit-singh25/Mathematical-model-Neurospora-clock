@@ -9,6 +9,7 @@ del<-c("kd1","kd2","kd6","kd7","kd8","kd9","kdL","kd10","kd13")
 df = df[,!(names(df) %in% del)]
 dat<-melt(df)
 ################################################
+pdf(file="Sfig-6.pdf",width=50/1.54,height=50/1.54)
 ggp3 <- ggplot(dat, aes(x = value)) +   
    geom_histogram(aes(y = ..density..)) +
 geom_density(col = "#1b98e0", size = 0.3) +
@@ -22,3 +23,4 @@ xlab("") +
 ylab("Slected parameter set") +
 facet_wrap(~variable, scales = "free")
 ggp3
+dev.off()
