@@ -154,7 +154,7 @@ L_mc = x(26);
 L_mdt = x(27);
 
 %//Wm
-dxdt(1) =(v_basal +k1*(Wl_Wl/(K1+Wl_Wl))*(Kcp1/(Kcp1+Cp))) -kd1*Mw;
+dxdt(1) =v_basal +k1*(Wl_Wl/(K1+Wl_Wl))*(Kcp1/(Kcp1+Cp)) -kd1*Mw;
 
 %wd
 dxdt(2)=k2*Mw -l1*light*Wd +k3*Wl +k4*Wl_Wl+k5*Wl_Vl -kpos1*(Wd*Fa/(Kpos1+Wd)) +kdpos1*Wdp -kd2*Wd;
