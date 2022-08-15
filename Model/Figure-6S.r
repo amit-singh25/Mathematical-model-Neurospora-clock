@@ -9,20 +9,16 @@ del<-c("kd1","kd2","kd6","kd7","kd8","kd9","kdL","kd10","kd13")
 df = df[,!(names(df) %in% del)]
 dat<-melt(df)
 ################################################
-ggplot(dat, aes(x=value, color=variable, fill=variable)) +
-geom_histogram(alpha=0.5, binwidth = 0.1) +
-#geom_density(alpha=.2)+
-     #scale_fill_viridis(discrete=TRUE) +
-    #scale_color_viridis(discrete=TRUE) +
-    #geom_histogram(alpha=0.2, binwidth = 0.1) +
-  theme_ipsum() +
-  theme(
-  legend.position="none",
-  panel.spacing = unit(0.1, "lines"),
-  strip.text.x = element_text(size = 8)
-  )+
-   xlab("") +
-   ylab("Slected parameter set") +
-  facet_wrap(~variable)
-
-
+ggp3 <- ggplot(dat, aes(x = value)) +   
+   geom_histogram(aes(y = ..density..)) +
+geom_density(col = "#1b98e0", size = 0.3) +
+theme_ipsum() +
+theme(
+legend.position="none",
+panel.spacing = unit(0.1, "lines"),
+strip.text.x = element_text(size = 8)
+)+
+xlab("") +
+ylab("Slected parameter set") +
+facet_wrap(~variable, scales = "free")
+ggp3
