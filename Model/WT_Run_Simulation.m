@@ -20,7 +20,7 @@ options=odeset('Abstol',1e-8,'Reltol',1e-8,'MaxStep',0.001);
 %%% solving equations
 [t,y]=ode15s(@DL_model,tspan,x_ini,options,signals);
 
-%%%%%%%% plot model simultaion
+%%%%%%%% Plot model Simulation
 subplot(2,2,1);
 plot(t,y(:,24),'LineWidth', 2);
 legend('\it Frq')
@@ -43,7 +43,7 @@ legend(' \it csp-1')
 xticks([0:24:200]);
 ax=gca;ax.LineWidth=2;ax.FontWeight = 'normal';ax.XAxis.FontSize = 24;
 ax.YAxis.FontSize = 24;
-ylabel('Expression(a.u.)');xlabel('Time (h)');
+ylabel('Expression(a.u.)');xlabel('Time(h)');
 
 subplot(2,2,4);
 plot(t,y(:,25),'LineWidth', 2);
@@ -88,7 +88,6 @@ print(h4,'Figure-4B','-dpdf')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%light induction plot %%%%%%%%%%
 
-
 lt=[  0.005 0.01 0.05 0.1 0.5 1 2 3 4 5];
 
 frq=[4.46 5.10 11.30 14.0888  17.9525 18.6955 19.0592 19.1615 19.2046 19.2258];
@@ -97,17 +96,6 @@ vvd=[1.87 2.36 9.248 16.3840  36.5804 43.1775 47.4504 48.9057 49.5369 49.8396];
 plot(lt,frq, '.-b', 'LineWidth', 2,'MarkerSize',36);
 hold on 
 plot(lt,vvd, '.-r', 'LineWidth', 2,'MarkerSize',18);
-Legend('\itfrq','\itvvd')
-
-
-
-lt=[0.005,0.01 0.05 0.1 0.5 1 2 3 4 5 ];
-dfrq=[4.0580 4.77 9.47 12.4498 16.6838 17.5500 18.0257 18.1781 18.2452 18.2782];
-dvvd=[2.09 2.213  8.47 16.0396 39.8637 47.9542 53.2240 55.0283 55.8154 56.1952];
-
-plot(lt,dfrq, '.-b', 'LineWidth', 2,'MarkerSize',36);
-hold on 
-plot(lt,dvvd, '.-r', 'LineWidth', 2,'MarkerSize',36);
 Legend('\itfrq','\itvvd')
 
 %%%%%%%%%%%%
