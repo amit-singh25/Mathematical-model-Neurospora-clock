@@ -79,13 +79,13 @@ xticks([0:24:200]);
 ax=gca;ax.LineWidth=2;ax.FontWeight = 'normal';ax.XAxis.FontSize = 24;
 ax.YAxis.FontSize = 24;
 set(gcf, 'Units', 'Inches', 'Position', [0, 0, 9.25, 9.125], 'PaperUnits', 'Inches', 'PaperSize', [9.25, 9.125])
-saveas(gcf,'fig1.pdf')
+saveas(gcf,'Figure-4B.pdf')
 h4=figure;
 set(h4,'PaperSize',[20 10]); %set the paper size to what you want  
 print(h4,'Figure-4B','-dpdf')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%light induction plot %%%%%%%%%%
-%%%%%%%Figure-5
+%%%%%%%Figure-5 left panle
 lt=[  0.005 0.01 0.05 0.1 0.5 1 2 3 4 5];
 
 frq=[4.46 5.10 11.30 14.0888  17.9525 18.6955 19.0592 19.1615 19.2046 19.2258];
@@ -95,6 +95,13 @@ plot(lt,frq, '.-b', 'LineWidth', 2,'MarkerSize',36);
 hold on 
 plot(lt,vvd, '.-r', 'LineWidth', 2,'MarkerSize',18);
 Legend('\itfrq','\itvvd')
+
+set(gcf, 'Units', 'Inches', 'Position', [0, 0, 9.25, 9.125], 'PaperUnits', 'Inches', 'PaperSize', [9.25, 9.125])
+saveas(gcf,'Figure-5.pdf')
+h4=figure;
+set(h4,'PaperSize',[20 10]); %set the paper size to what you want  
+print(h4,'Figure-5','-dpdf')
+
 
 %%%%%%%%%%%% SFig-2A) Simulated response of reporters to 10 repetitive LD cycles.
 %%% SFig-2B) can be simulated by changeing parameter l2 =0 and l1 = 0 and then follow the below code to plot 
@@ -127,7 +134,11 @@ title('\it{fam-3}')
 ax=gca;ax.LineWidth=2;ax.FontWeight = 'normal';ax.XAxis.FontSize = 24;
 ax.YAxis.FontSize = 24;xlabel('Time[h]');ylabel('Expression [a.u]');
 
-
+set(gcf, 'Units', 'Inches', 'Position', [0, 0, 9.25, 9.125], 'PaperUnits', 'Inches', 'PaperSize', [9.25, 9.125])
+saveas(gcf,'SFig-2A.pdf')
+h4=figure;
+set(h4,'PaperSize',[20 10]); %set the paper size to what you want  
+print(h4,'SFig-2A','-dpdf')
 
 
 
