@@ -19,7 +19,7 @@ options=odeset('Abstol',1e-8,'Reltol',1e-8,'MaxStep',0.001);
 %%% solving equations
 [t,y]=ode15s(@DL_model,tspan,x_ini,options,signals);
 
-%%%%%%%% Plot model Simulation
+%%%%%%%% Plot model Simulation Figure-3(WT) left pannel
 subplot(2,2,1);
 plot(t,y(:,24),'LineWidth', 2);
 legend('\it Frq')
