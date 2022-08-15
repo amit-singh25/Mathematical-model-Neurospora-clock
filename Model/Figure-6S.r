@@ -11,7 +11,7 @@ dat<-melt(df)
 ################################################
 ggplot(dat, aes(x=value, color=variable, fill=variable)) +
 geom_histogram(alpha=0.5, binwidth = 0.1) +
-geom_density(alpha=.2)+
+#geom_density(alpha=.2)+
      #scale_fill_viridis(discrete=TRUE) +
     #scale_color_viridis(discrete=TRUE) +
     #geom_histogram(alpha=0.2, binwidth = 0.1) +
@@ -24,6 +24,5 @@ geom_density(alpha=.2)+
    xlab("") +
    ylab("Slected parameter set") +
   facet_wrap(~variable)
-
 
 
