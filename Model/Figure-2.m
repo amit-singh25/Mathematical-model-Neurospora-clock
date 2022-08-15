@@ -1,4 +1,4 @@
-%%%%%%%Plot data with SD wiwth patch
+%%%%%%%Plot data with SD with patch
 
 d1 = 'DL_final_data.xlsx';
 DL = readtable(d1);
