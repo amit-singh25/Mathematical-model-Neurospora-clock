@@ -1,0 +1,76 @@
+DESCRIPTION
+"Experimenter: Amit"
+"Cells: Neurospora crassa"
+
+PREDICTOR
+// -CIRCADIAN CLOCK, light and dark condtion
+
+t               T   "hour"     "time"	0	220
+INPUTS
+
+// light "step2(t,0,72,0.5, 72+12,0) +step2(t, 0, 72+24, 0.5, 72+36, 0)+ step2 (t, 0, 72+46 ,0, 0,0)"
+
+//light "step2(t,0,1.98742,25, 1.9+12,0) +step2(t, 0, 1.98742+24, 25, 1.98742+36, 0)+step2(t,0,1.98742+96+36,0, 0,0)+step2(t,0,37.9874+96,0.5, 37.9874+96+12,0)+step2(t, 0, 337.9874+96+24, 0.5, 37.9874+96+36, 0)+step2(t,0,96+36+102,0, 0,0)"
+
+light "step2(t,0,1.98742,25, 1.98742+12,0) +step2(t, 0, 1.98742+24, 25, 2+36, 0)+step2(t,0,1.98742+96+36,0, 0,0)+step2(t,0, 37.9874+96,0.5,  37.9874+96+12,0)+step2(t, 0,  37.9874+96+24, 0.5,  37.9874+96+36, 0)+step2(t,0,96+36+102,0, 0,0)"
+
+
+//light "step2(t,0,72,0.5, 72+12,0) +step2(t, 0, 72+24, 0.5, 72+36, 0)+ step2 (t, 0, 72+46 ,0, 0,0)"
+//light "step2(t,0,72,0.5,72+120,10)"
+light "step2(t,0,2,25, 2+12,0) +step2(t, 0, 2+24, 25, 2+36, 0)+step2(t,0,2+96+36,0, 0,0)+step2(t,0,38+96,0.5, 38+96+12,0)+step2(t, 0, 38+96+24, 0.5, 38+96+36, 0)+step2(t,0,96+36+102,0, 0,0)"
+//light "step2(t,0,72,0.5, 72+12,0) +step2(t, 0, 72+24,0.5, 72+36, 0)+ step2 (t, 0, 72+46 ,0, 0,0)+step2(t, 0, 72+46+72, 0.5, 72+46+72+12,0)+step2(t, 0, 72+46+36+72,0,0,0)"
+//light "step2(t,0,72,0.5, 72+12,0) +step2(t, 0, 72+24,0.5, 72+36, 0)+ step2 (t, 0, 72+46 ,0, 0,0)+step2(t, 0, 72+46+72,0.5, 72+46+72+12,0)+step2(t, 0, 72+46+36+72,0,0,0)"
+//michaeal input
+//light "step2(t,0,72,0.5, 72+12,0) +step2(t, 0, 72+24, 0.5, 72+36, 0)+ step2(t, 0, 72+48 ,0.5, 72+60, 0)+ step2 (t, 0, 72+48+24 ,0.5, 72+60+24, 0)+step2(t, 0, 72+72+24 ,0.5, 72+60+48, 0)+step2(t,0,72+72+48,0.5,72+60+48+24,0)+step2(t,0,404,0.5,404+24,0)"
+
+OBSERVABLES
+
+//L_dfrq_obs       C    "au"   "conc."   0   0  "L_frq"
+//L_dvvd_obs       C    "au"   "conc."   0   0  "L_vvd"
+L_dfrq_obs       C    "au"   "conc."   0   0  "L_frq*frqs"
+L_dvvd_obs       C    "au"   "conc."   0   0  "L_vvd*vvds"
+L_dmc_obs        C    "au"   "conc."   0   0  "L_mc*mcs"
+L_dmdt_obs       C    "au"   "conc."   0   0  "L_mdt*mdts"
+L_dmwc_obs       C    "au"   "conc."   0   0  "L_dmwc*mwc"
+
+ERRORS
+
+L_dfrq_obs		   "sd_L_dfrq_obs"
+L_dvvd_obs		   "sd_L_dvvd_obs"
+L_dmc_obs		   "sd_L_dmc_obs"
+L_dmdt_obs	       "sd_L_dmdt_obs"
+L_dmwc_obs          "L_dmwc_obs"
+
+CONDITIONS
+
+//dark_dark
+
+f_del_vvd "0"
+init_Wl_Vl "0"
+init_Mv  "0"
+init_Vd "0"
+init_Vl "0"
+init_Vl_Vl   "0"
+init_Wl_Vlp  "0"
+init_L_vvd   "dvvd_in"
+init_L_mdt   "dmdt_in"
+init_L_frq   "dfrq_in"
+init_L_mc    "dmc_in"
+init_L_mwc   "dmwc_in"
+init_Cp      "dCp_in"
+init_Fi      "dFi_in"   
+init_Fi1     "dFi1_in"
+init_Fi2     "dFi2_in"
+init_Fi3      "dFi3_in"
+init_Fi4      "dFi4_in"
+init_Fi5      "dFi5_in"
+init_Fa      "dFa_in"   
+init_Mdt     "dMdt_in"     
+init_Mf      "dMf_in"     
+init_Wd     "dWd_in"
+init_Wdp  "dWdp_in"
+init_Wl     "dWl_in"
+init_Wlp    "dWlp_in"
+init_Wl_Wl   "dWl_Wl_in"
+init_Wl_Wlp  "dWl_Wlp_in"
+
