@@ -79,7 +79,6 @@ legend('mRNAfrq','FRQ','FFC')
 xticks([0:24:200]);
 ax=gca;ax.LineWidth=2;ax.FontWeight = 'normal';ax.XAxis.FontSize = 24;
 ax.YAxis.FontSize = 24;
-
 set(gcf, 'Units', 'Inches', 'Position', [0, 0, 9.25, 9.125], 'PaperUnits', 'Inches', 'PaperSize', [9.25, 9.125])
 saveas(gcf,'fig1.pdf')
 h4=figure;
@@ -87,7 +86,7 @@ set(h4,'PaperSize',[20 10]); %set the paper size to what you want
 print(h4,'Figure-4B','-dpdf')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%light induction plot %%%%%%%%%%
-
+%%%%%%%Figure-5
 lt=[  0.005 0.01 0.05 0.1 0.5 1 2 3 4 5];
 
 frq=[4.46 5.10 11.30 14.0888  17.9525 18.6955 19.0592 19.1615 19.2046 19.2258];
@@ -98,8 +97,8 @@ hold on
 plot(lt,vvd, '.-r', 'LineWidth', 2,'MarkerSize',18);
 Legend('\itfrq','\itvvd')
 
-%%%%%%%%%%%%
-
+%%%%%%%%%%%% SFig-2A) Simulated response of reporters to 10 repetitive LD cycles.
+%%% SFig-2B) can be simulated 
 T=24;
 start=[72+T 72+2*T 72+3*T 72+4*T 72+5*T 72+6*T 72+7*T 72+8*T 72+9*T 72+10*T];
 width=[12 12 12 12 12 12 12 12 12 12];
@@ -109,15 +108,12 @@ tspan=[0 400];
 options = odeset('RelTol',eps);
 %options=odeset('Abstol',1e-8,'Reltol',1e-8,'MaxStep',0.01);
 [t,y]=ode15s(@DL_model,tspan,x_ini,options,signals);
-
-[t,y]=ode15s(@DL_model,tspan,x_ini,options,signals);
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 subplot(2,2,1)
 plot(t,y(:,24),'LineWidth', 3);
 title('\it{frq}')
 ax=gca;ax.LineWidth=2;ax.FontWeight = 'normal';ax.XAxis.FontSize = 24;
 ax.YAxis.FontSize = 24;xlabel('Time[h]');ylabel('Expression [a.u]');
-
 subplot(2,2,2)
 plot(t,y(:,25),'LineWidth', 3);
 title('\it{vvd}')
