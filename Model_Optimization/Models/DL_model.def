@@ -1,0 +1,171 @@
+DESCRIPTION
+"FRQ and VVD induced by WCC signalling in Neurosporacrassa with negative feedback by FRQ, VVD and Desat"
+
+PREDICTOR
+t	T	"min"	"time"	0	250
+
+COMPARTMENTS
+
+STATES
+Mw       C   "au"      "conc."  cyt  1
+Wd	       C   "au"      "conc."  cyt  1
+Wdp	       C   "au"      "conc."  cyt  1
+Wl	       C   "au"      "conc."  cyt  1
+Wlp        C   "au"      "conc."  cyt  1
+Wl_Wl	   C   "au"      "conc."  cyt  1
+Wl_Wlp	   C   "au"      "conc."  cyt  1
+Wl_Vl	   C   "au"      "conc."  cyt  1
+Wl_Vlp	   C   "au"      "conc."  cyt  1
+Mv         C   "au"      "conc."  cyt  1
+Vd         C   "au"      "conc."  cyt  1
+Vl         C   "au"      "conc."  cyt  1
+Vl_Vl      C   "au"      "conc."  cyt  1
+Mf	       C   "au"      "conc."  cyt  1 
+Fi         C   "au"      "conc."  cyt  1 
+Fi1         C   "au"      "conc."  cyt  1 
+Fi2         C   "au"      "conc."  cyt  1 
+Fi3         C   "au"      "conc."  cyt  1    
+Fi4         C   "au"      "conc."  cyt  1   
+Fi5         C   "au"      "conc."  cyt  1       
+Fa         C   "au"      "conc."  cyt  1
+Cp         C   "au"      "conc."  cyt  1
+Mdt        C   "au"      "conc."  cyt  1
+L_frq      C   "au"      "conc."  cyt  1 
+L_vvd      C   "au"      "conc."  cyt  1
+L_mc       C   "au"      "conc."  cyt  1
+L_mdt      C   "au"      "conc."  cyt  1
+
+
+INPUTS
+
+light    C   "nm"   "conc."   "0"
+
+//a  C   "nm"   "conc."   "0"
+//b  C   "nm"   "conc."   "0"
+
+ODES
+
+
+//Wm
+
+
+"v_basal+k1*(Wl_Wl/(K1+Wl_Wl))*(Kcp1/(Kcp1+Cp))-kd1*Mw"
+
+//Wd
+
+"k2*Mw -l1*light*Wd+k3*Wl+k4*Wl_Wl+k5*Wl_Vl-kpos1*(Wd*Fa/(Kpos1+Wd))+kdpos1*Wdp -kd2*Wd"
+
+//Wdp
+
+"kpos1*(Wd*Fa/(Kpos1+Wd))-kdpos1*Wdp-kdp1*Wdp -l1*light*Wdp+k3*Wlp+k4*Wl_Wlp+k5*Wl_Vlp"
+
+//Wl
+
+"l1*light*Wd -k3*Wl -k6*(Wl^2) +k7*Wl_Wl +k8*Wl_Vl -k9*Wl*Vl -kpos2*(Wl*Fa/(Kpos2+ Wl))+kdpos2*Wlp-kd3*Wl"
+
+//Wlp
+
+"kpos2*(Wl*Fa/(Kpos2+ Wl))-kdpos2*Wlp-kdp2*Wlp+l1*light*Wdp -k3*Wlp -k6*(Wlp^2) +k7*Wl_Wlp+k8*Wl_Vlp -k9*Wlp*Vl"
+
+//Wl_Wl
+
+"k6*(Wl^2)-k7*Wl_Wl-k4*Wl_Wl-kpos3*(Wl_Wl*Fa/(Kpos3 +Wl_Wl))+kdpos3*Wl_Wlp-kd4*Wl_Wl"
+
+//Wl_Wlp
+
+"kpos3*(Wl_Wl*Fa/(Kpos3 +Wl_Wl)) -kdpos3*Wl_Wlp -kdp3*Wl_Wlp+k6*(Wlp^2)-k7*Wl_Wlp-k4*Wl_Wlp"
+
+//Wl_Vl
+
+"k9*Wl*Vl -k8*Wl_Vl -k5*Wl_Vl -kpos4*(Wl_Vl*Fa/(Kpos4 + Wl_Vl))+kdpos4*Wl_Vlp-kd5*Wl_Vl"  
+
+//Wl_Vlp
+
+"kpos4*(Wl_Vl*Fa/(Kpos4 + Wl_Vl))-kdpos4*Wl_Vlp-kdp4*Wl_Vlp+k9*Wlp*Vl-k8*Wl_Vlp-k5*Wl_Vlp"                                                                                                                          
+
+//Mv
+
+"f_del_vvd*(v1*(Wd/(K2+Wd))+v1*(Wl/(K2+Wl))+v2*(Wl_Wl/(K3+ Wl_Wl))+v1*(Wl_Vl/(K2+Wl_Vl))-kd6*Mv)"
+
+//Vd
+
+"v3*Mv  + k10*Vl - l2*light*Vd -kd7*Vd"
+
+//Vl
+
+"l2*light*Vd -k10*Vl +k11*Vl_Vl -k12*(Vl^2)-kd8*Vl+k8*Wl_Vl-k9*Wl*Vl+k5*Wl_Vl+k8*Wl_Vlp-k9*Wlp*Vl+k5*Wl_Vlp"
+
+//Vl_Vl
+
+"k12*(Vl^2)-k11*Vl_Vl -kd9*Vl_Vl"
+
+//Mf
+
+//"v4*(Wd^n1/(K4^n1+Wd^n1)) + v4*(Wl/(K4+Wl))+ v5*(Wl_Wl/(K5+Wl_Wl))+ v4*(Wl_Vl/(K4+Wl_Vl))-kd10*Mf"
+
+"v4*(Wd/(K4+Wd)) + v4*(Wl/(K4+Wl))+ v5*(Wl_Wl/(K5+Wl_Wl))+ v4*(Wl_Vl/(K4+Wl_Vl))-kd10*Mf"
+
+//Fi
+
+//"v8*Mf - kd11*(Fi/(Kd11+Fi))"
+
+//"k15*Fi -kd12*Fa"
+
+"k_f*Mf - v_fd*Fi"
+"k_c*(Fi - Fi1)"
+"k_c*(Fi1 - Fi2)"
+"k_c*(Fi2 - Fi3)"
+"k_c*(Fi3 - Fi4)"
+"k_c*(Fi4 - Fi5)"
+
+//Fa
+
+"k_c*Fi5 - k_n*Fa"
+
+
+//mc
+
+
+"v7*(Wd/(K6+Wd))*(Kcp2/(Cp + Kcp2))+v7*(Wl/(K6+Wl))*(Kcp2/(Cp + Kcp2))+v8*(Wl_Wl/(K7+Wl_Wl))*(Kcp3/(Cp + Kcp3))+v7*(Wl_Vl/(K6+Wl_Vl))*(Kcp2/(Cp + Kcp2))- kd13*Cp"
+
+//mdt
+
+"v2_basal+v9*(Kcp4/(Cp+Kcp4))-kd14*Mdt"
+
+
+//fitting
+
+"v_L_frq*(v4*(Wd/(K4+Wd)) + v4*(Wl/(K4+Wl))+ v5*(Wl_Wl/(K5+Wl_Wl))+ v4*(Wl_Vl/(K4+Wl_Vl)))- kdL*L_frq"
+
+"v_L_vvd*(v1*(Wd/(K2+Wd))+v1*(Wl/(K2+Wl))+v2*(Wl_Wl/(K3+ Wl_Wl))+v1*(Wl_Vl/(K2+Wl_Vl)))- kdL*L_vvd"
+
+"v_L_mc*(v7*(Wd/(K6+Wd))*(Kcp2/(Cp + Kcp2))+v7*(Wl/(K6+Wl))*(Kcp2/(Cp + Kcp2))+v8*(Wl_Wl/(K7+Wl_Wl))*(Kcp3/(Cp+ Kcp3))+v7*(Wl_Vl/(K6+Wl_Vl))*(Kcp2/(Cp + Kcp2)))- kdL*L_mc"
+
+
+"v_L_mdt*(v2_basal+v9*(Kcp4/(Cp+Kcp4)))- kdL*L_mdt"
+
+
+DERIVED
+
+Wd-tot            C   au      conc.    "Wd+Wdp"
+Wl-tot            C   au      conc.    "Wl+Wlp"
+WlWl-tot          C   au      conc.    "Wl_Wl+Wl_Wlp"
+Wl_Vl-tot         C   au      conc.    "Wl_Vl+Wl_Vlp"
+WCC-tot           C   au      conc.   "Wd+Wdp+Wl+Wlp+Wl_Wl+Wl_Wlp+Wl_Vl+Wl_Vlp"
+WCC-unphos_tot           C   au      conc.   "Wd+Wl+Wl_Wl+Wl_Vl"
+WCCp-tot          C   au      conc.   "Wdp+Wlp+Wl_Wlp+Wl_Vlp"
+wcc_light_wop     C   au      conc.   "Wl+Wl_Wl+Wl_Vl"
+wcc_light_wp     C   au      conc.   "Wlp+Wl_Wlp+Wl_Vlp"  
+wcc_light_all     C   au      conc.   "Wl+Wl_Wl+Wl_Vl+Wlp+Wl_Wlp+Wl_Vlp"
+Vvd-tot           C   au      conc.   "Vl_Vl+Vd+Vl"
+VvdL-tot          C   au      conc.   "Vl_Vl+Vl"
+frqtot            C   au      conc.   "Fi+Fi1+Fi2+Fi3+Fi4+Fi5+Fa"
+
+
+CONDITIONS
+
+l1  "l2"
+
+init_Mw  "v_basal/kd1"
+
+//Wd "Wl=Wl_Vl"

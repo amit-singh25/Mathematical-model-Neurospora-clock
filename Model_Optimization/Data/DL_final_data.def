@@ -1,0 +1,53 @@
+DESCRIPTION
+"Experimenter: Amit"
+"Cells: Neurospora crassa"
+
+PREDICTOR
+// -CIRCADIAN CLOCK, light and dark condtion
+
+t               T   "hour"     "time"	0	250
+INPUTS
+
+// t=here we start 24 to 0, upto 72 its dark so we put 0 and light intensity 3.5 then switch on the light 72+12 then turn agin to dark which means 0
+//This data was measured low light ca 0.35 ?mo last 48h to HL ca. 30 ?mol	
+
+light "step2(t,0,72,0.5, 72+12,0) +step2(t, 0, 72+24, 0.5, 72+36, 0)+ step2 (t, 0, 72+46 ,0, 0,0)"
+
+//light "step2(t,0,72,0.5,72+120,10)"
+
+//light "step2(t,0,2,25, 2+12,0) +step2(t, 0, 2+24, 25, 2+36, 0)+step2(t,0,2+96+36,0, 0,0)+step2(t,0,38+96,0.5, 38+96+12,0)+step2(t, 0, 38+96+24, 0.5, 38+96+36, 0)+step2(t,0,96+36+102,0, 0,0)"
+
+//light "step2(t,0,72,0.5, 72+12,0) +step2(t, 0, 72+24, 0.5, 72+36, 0)+ step2 (t, 0, 72+36 ,0.5, 72+48, 0)+ step2 (t, 0, 72+48 ,0.5, 72+60, 0)+ step2 (t, 0, 72+60 ,0.5, 72+72, 0)"
+
+//light "step2(t,0,72,0.5, 72+12,0) +step2(t, 0, 72+24,0.5, 72+36, 0)+ step2 (t, 0, 72+46 ,0, 0,0)+step2(t, 0, 72+46+72,0.5, 72+46+72+12,0)+step2(t, 0, 72+46+36+72,0,0,0)"
+//michaelinput
+//light "step2(t,0,72,0.5, 72+12,0) +step2(t, 0, 72+24, 0.5, 72+36, 0)+ step2(t, 0, 72+48 ,0.5, 72+60, 0)+ step2 (t, 0, 72+48+24 ,0.5, 72+60+24, 0)+step2(t, 0, 72+72+24 ,0.5, 72+60+48, 0)+step2(t,0,72+72+48,0.5,72+60+48+24,0)+step2(t,0,404,0.5,404+24,0)"
+
+//+ step2 (t, 0, 72+60 ,0.5, 72+72, 0)"
+
+OBSERVABLES
+
+L_frq_obs       C    "au"   "conc."   0   0   "L_frq"
+L_vvd_obs       C    "au"   "conc."   0   0   "L_vvd"
+L_mc_obs        C    "au"   "conc."   0   0   "L_mc"
+L_mdt_obs       C    "au"   "conc."   0   0   "L_mdt"
+
+
+
+ERRORS
+
+L_frq_obs		   "sd_L_frq_obs"
+L_vvd_obs	   "sd_L_vvd_obs"
+L_mc_obs		   "sd_L_mc_obs"
+L_mdt_obs	  "sd_L_mdt_obs"
+
+
+CONDITIONS
+//dark_dark
+//light_dark
+
+f_del_vvd "1"
+init_L_vvd   "vvd_in"
+init_L_mdt   "mdt_in"
+init_L_frq   "frq_in"
+init_L_mc    "mc_in"
